@@ -585,7 +585,7 @@ a {
 }
 .calendar__datetime {
   text-align: center;
-  margin: -10px 0 24px;
+  margin: -40px 0 24px;
   font-size: 1rem;
   color: var(--color-text-light);
   line-height: 1.8;
