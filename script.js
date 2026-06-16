@@ -1,4 +1,4 @@
-/**
+3/**
  * Classic Elegant Wedding Invitation
  * Korean Mobile 청첩장 - Script
  */
@@ -745,8 +745,8 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
 
     // Auto-detect story and gallery images in parallel
     const [storyImages, galleryImages] = await Promise.all([
-      loadImagesFromFolder('story'),
-      loadImagesFromFolder('gallery')
+      loadImagesFromFolder('story', 2),
+      loadImagesFromFolder('gallery', 15)
     ]);
 
     // Render sections with discovered images
