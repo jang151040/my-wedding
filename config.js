@@ -45,8 +45,8 @@ wedding: {
 
   kakaoMap: {
     appKey: "a26d8755c93fa51e3a13cc5f22e8556c",
-    lat: 37.4227,
-    lng: 126.8816
+    lat: 37.4164,
+    lng: 126.8848
   },
 
   mapLinks: {
