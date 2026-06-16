@@ -372,6 +372,10 @@ a {
   color: var(--color-text);
 }
 
+.calendar-section .section__title {
+  margin-bottom: 24px;
+}
+
 /* ─── Ornament ─── */
 .ornament {
   font-size: 1.25rem;
@@ -585,7 +589,7 @@ a {
 }
 .calendar__datetime {
   text-align: center;
-  margin: -40px 0 24px;
+  margin: 0px 0 24px;
   font-size: 0.8rem;
   color: var(--color-text-light);
   line-height: 1.8;
