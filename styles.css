@@ -373,7 +373,11 @@ a {
 }
 
 .calendar-section .section__title {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+
+.calendar__datetime {
+  margin: 0 0 18px;
 }
 
 /* ─── Ornament ─── */
