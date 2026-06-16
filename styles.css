@@ -1177,30 +1177,77 @@ a {
 
 /* ===== GUIDE ===== */
 
-.guide_item{
-    border-top:1px solid #ddd3ca;
+.guide {
+  background: #fff;
 }
 
-.guide_item:last-child{
-    border-bottom:1px solid #ddd3ca;
+.account {
+  background: var(--color-bg);
 }
 
-.guide_item summary{
-    list-style:none;
-    cursor:pointer;
-    padding:24px 8px;
-    font-size:1.15rem;
-    color:var(--color-text);
+.guide__label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 8px;
+  color: var(--color-text-light);
+  margin-bottom: 14px;
 }
 
-.guide_item summary::-webkit-details-marker{
-    display:none;
+.guide .section__title {
+  margin-bottom: 48px;
 }
 
-.guide_content{
-    background:#f8f6f3;
-    padding:24px;
-    margin-bottom:12px;
-    line-height:1.9;
-    color:var(--color-text-light);
+.guide_item {
+  border-top: 1px solid #e2d6ca;
+}
+
+.guide_item:last-child {
+  border-bottom: 1px solid #e2d6ca;
+}
+
+.guide_item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 24px 8px;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--color-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.guide_item summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide_item summary::after {
+  content: "▼";
+  font-size: 0.85rem;
+  color: #9a8b7d;
+  margin-left: 16px;
+}
+
+.guide_item[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.guide_content {
+  background: #faf8f6;
+  padding: 24px 22px;
+  margin: 0 0 18px;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--color-text-light);
+  word-break: keep-all;
+}
+
+.guide_content p {
+  margin: 0 0 10px;
+}
+
+.guide_content p:last-child {
+  margin-bottom: 0;
 }
