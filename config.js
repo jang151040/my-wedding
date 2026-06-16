@@ -75,7 +75,7 @@ wedding: {
     groom: [
       { role: "신랑", name: "장재관", bank: "카카오", number: "3333-10-6394313" },
       { role: "아버지", name: "장운철", bank: "신한은행", number: "000-000-000000" },
-      { role: "어머니", name: "정미선", bank: "우리은행", number: "000-000-000000" }
+      { role: "어머니", name: "정미선", bank: "국민은행", number: "962701-01-159442" }
     ],
     bride: [
       { role: "신부", name: "남소진", bank: "신한은행", number: "110-236-257588" },
