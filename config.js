@@ -45,8 +45,8 @@ wedding: {
 
   kakaoMap: {
     appKey: "a26d8755c93fa51e3a13cc5f22e8556c",
-    lat: 37.41860,
-    lng: 126.88280
+    lat: 37.41880,
+    lng: 126.88283
   },
 
   mapLinks: {
@@ -86,7 +86,7 @@ wedding: {
 
   // ── 링크 공유 시 나타나는 문구 ──
   meta: {
-    title: "신랑 ♥ 신부 결혼합니다",
-    description: "2025년 1월 1일, 소중한 분들을 초대합니다."
+    title: "장재관 ♥ 남소진 결혼합니다",
+    description: "2025년 10월 25일, 소중한 분들을 초대합니다."
   }
 };
