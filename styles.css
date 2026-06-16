@@ -1178,7 +1178,7 @@ a {
 /* ===== GUIDE ===== */
 
 .guide {
-  background: #fff;
+  background: var(--color-bg-warm);
 }
 
 .account {
