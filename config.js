@@ -45,7 +45,7 @@ wedding: {
 
   kakaoMap: {
     appKey: "a26d8755c93fa51e3a13cc5f22e8556c",
-    lat: 37.41795,
+    lat: 37.41820,
     lng: 126.88280
   },
 
@@ -79,8 +79,8 @@ wedding: {
     ],
     bride: [
       { role: "신부", name: "남소진", bank: "신한은행", number: "110-236-257588" },
-      { role: "아버지", name: "남양희", bank: "기업은행", number: "000-000-000000" },
-      { role: "어머니", name: "전명애", bank: "기업은행", number: "010-8534-1900" }
+      { role: "아버지", name: "남양희", bank: "국민은행", number: "061701-04-168261" },
+      { role: "어머니", name: "전명애", bank: "신한은행", number: "110-019-821941" }
     ]
   },
 
