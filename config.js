@@ -74,7 +74,7 @@ wedding: {
   accounts: {
     groom: [
       { role: "신랑", name: "장재관", bank: "카카오", number: "3333-10-6394313" },
-      { role: "아버지", name: "장운철", bank: "신한은행", number: "000-000-000000" },
+      { role: "아버지", name: "장운철", bank: "국민은행", number: "104-21-0903-411" },
       { role: "어머니", name: "정미선", bank: "국민은행", number: "962701-01-159442" }
     ],
     bride: [
@@ -87,6 +87,6 @@ wedding: {
   // ── 링크 공유 시 나타나는 문구 ──
   meta: {
     title: "장재관 ♥ 남소진 결혼합니다",
-    description: "2025년 10월 25일, 소중한 분들을 초대합니다."
+    description: "2026년 10월 25일 오후 4시 20분 · 광명 아이벡스 컨벤션"
   }
 };

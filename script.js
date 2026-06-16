@@ -1,4 +1,4 @@
-3/**
+/**
  * Classic Elegant Wedding Invitation
  * Korean Mobile 청첩장 - Script
  */
