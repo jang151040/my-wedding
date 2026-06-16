@@ -1174,3 +1174,33 @@ a {
     transform: none !important;
   }
 }
+
+/* ===== GUIDE ===== */
+
+.guide_item{
+    border-top:1px solid #ddd3ca;
+}
+
+.guide_item:last-child{
+    border-bottom:1px solid #ddd3ca;
+}
+
+.guide_item summary{
+    list-style:none;
+    cursor:pointer;
+    padding:24px 8px;
+    font-size:1.15rem;
+    color:var(--color-text);
+}
+
+.guide_item summary::-webkit-details-marker{
+    display:none;
+}
+
+.guide_content{
+    background:#f8f6f3;
+    padding:24px;
+    margin-bottom:12px;
+    line-height:1.9;
+    color:var(--color-text-light);
+}
