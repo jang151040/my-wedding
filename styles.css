@@ -1197,15 +1197,15 @@ a {
   margin-bottom: 48px;
 }
 
-.guide_item {
+.guide__item {
   border-top: 1px solid #e2d6ca;
 }
 
-.guide_item:last-child {
+.guide__item:last-child {
   border-bottom: 1px solid #e2d6ca;
 }
 
-.guide_item summary {
+.guide__item summary {
   list-style: none;
   cursor: pointer;
   padding: 24px 8px;
@@ -1218,22 +1218,22 @@ a {
   text-align: left;
 }
 
-.guide_item summary::-webkit-details-marker {
+.guide__item summary::-webkit-details-marker {
   display: none;
 }
 
-.guide_item summary::after {
+.guide__item summary::after {
   content: "▼";
   font-size: 0.85rem;
   color: #9a8b7d;
   margin-left: 16px;
 }
 
-.guide_item[open] summary::after {
+.guide__item[open] summary::after {
   transform: rotate(180deg);
 }
 
-.guide_content {
+.guide__content {
   background: #faf8f6;
   padding: 24px 22px;
   margin: 0 0 18px;
@@ -1244,10 +1244,10 @@ a {
   word-break: keep-all;
 }
 
-.guide_content p {
+.guide__content p {
   margin: 0 0 10px;
 }
 
-.guide_content p:last-child {
+.guide__content p:last-child {
   margin-bottom: 0;
 }
