@@ -760,3 +760,39 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
     init();
   }
 })();
+
+// ===== Message Test Function =====
+const messageSubmitBtn = document.getElementById('messageSubmitBtn');
+
+if (messageSubmitBtn) {
+  messageSubmitBtn.addEventListener('click', () => {
+    const nameInput = document.getElementById('guestName');
+    const messageInput = document.getElementById('guestMessage');
+    const messageList = document.querySelector('.message__list');
+    const emptyMessage = document.querySelector('.message__empty');
+
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !message) {
+      alert('성함과 축하 메시지를 모두 입력해 주세요.');
+      return;
+    }
+
+    if (emptyMessage) {
+      emptyMessage.remove();
+    }
+
+    const item = document.createElement('div');
+    item.className = 'message__item';
+    item.innerHTML = `
+      <p class="message__item-name">${name}</p>
+      <p class="message__item-text">${message}</p>
+    `;
+
+    messageList.appendChild(item);
+
+    nameInput.value = '';
+    messageInput.value = '';
+  });
+}
