@@ -1266,6 +1266,7 @@ a {
 
 .message__input,
 .message__textarea {
+  display: block;
   width: 100%;
   border: 1px solid var(--color-border);
   background: rgba(255, 255, 255, 0.75);
@@ -1285,6 +1286,7 @@ a {
 }
 
 .message__button {
+  display: block;
   width: 100%;
   padding: 1rem;
   background: var(--color-text);
