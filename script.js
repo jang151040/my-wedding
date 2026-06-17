@@ -5,8 +5,7 @@
 
 (function () {
   'use strict';
-
-    const firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyBHuuJskiWnPD5lFGv9HXNsZTMsgsAVTSk",
     authDomain: "jaegwan-wedding.firebaseapp.com",
     projectId: "jaegwan-wedding",
