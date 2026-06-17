@@ -6,6 +6,18 @@
 (function () {
   'use strict';
 
+    const firebaseConfig = {
+    apiKey: "AIzaSyBHuuJskiWnPD5lFGv9HXNsZTMsgsAVTSk",
+    authDomain: "jaegwan-wedding.firebaseapp.com",
+    projectId: "jaegwan-wedding",
+    storageBucket: "jaegwan-wedding.firebasestorage.app",
+    messagingSenderId: "855302042233",
+    appId: "1:855302042233:web:82ced2e4e913e1069b5aa8"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
   /* ═══════════════════════════════════════════
      Utility Helpers
      ═══════════════════════════════════════════ */
@@ -761,38 +773,63 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
   }
 })();
 
-// ===== Message Test Function =====
-const messageSubmitBtn = document.getElementById('messageSubmitBtn');
+  // ===== Firebase Guestbook =====
+  const messageSubmitBtn = document.getElementById('messageSubmitBtn');
 
-if (messageSubmitBtn) {
-  messageSubmitBtn.addEventListener('click', () => {
+  if (messageSubmitBtn) {
     const nameInput = document.getElementById('guestName');
     const messageInput = document.getElementById('guestMessage');
     const messageList = document.querySelector('.message__list');
     const emptyMessage = document.querySelector('.message__empty');
 
-    const name = nameInput.value.trim();
-    const message = messageInput.value.trim();
+    messageSubmitBtn.addEventListener('click', async () => {
+      const name = nameInput.value.trim();
+      const message = messageInput.value.trim();
 
-    if (!name || !message) {
-      alert('성함과 축하 메시지를 모두 입력해 주세요.');
-      return;
-    }
+      if (!name || !message) {
+        alert('성함과 축하 메시지를 모두 입력해 주세요.');
+        return;
+      }
 
-    if (emptyMessage) {
-      emptyMessage.remove();
-    }
+      try {
+        await db.collection('messages').add({
+          name,
+          message,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
 
-    const item = document.createElement('div');
-    item.className = 'message__item';
-    item.innerHTML = `
-      <p class="message__item-name">${name}</p>
-      <p class="message__item-text">${message}</p>
-    `;
+        nameInput.value = '';
+        messageInput.value = '';
+        alert('축하 메시지가 남겨졌습니다.');
+      } catch (error) {
+        console.error(error);
+        alert('메시지 저장 중 오류가 발생했습니다.');
+      }
+    });
 
-    messageList.appendChild(item);
+    db.collection('messages')
+      .orderBy('createdAt', 'desc')
+      .onSnapshot((snapshot) => {
+        document.querySelectorAll('.message__item').forEach(item => item.remove());
 
-    nameInput.value = '';
-    messageInput.value = '';
-  });
-}
+        if (snapshot.empty) {
+          if (emptyMessage) emptyMessage.style.display = 'block';
+          return;
+        }
+
+        if (emptyMessage) emptyMessage.style.display = 'none';
+
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+
+          const item = document.createElement('div');
+          item.className = 'message__item';
+          item.innerHTML = `
+            <p class="message__item-name">${data.name}</p>
+            <p class="message__item-text">${data.message}</p>
+          `;
+
+          messageList.appendChild(item);
+        });
+      });
+  }
