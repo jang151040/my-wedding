@@ -479,23 +479,34 @@
 
   let modalImages = [];
   let modalIndex = 0;
+  let scrollPosition = 0;
   let touchStartX = 0;
   let touchEndX = 0;
   let touchStartY = 0;
   let touchEndY = 0;
 
   function openPhotoModal(images, index) {
-    modalImages = images;
-    modalIndex = index;
-    showModalImage();
-    $('#photoModal').classList.add('is-open');
-    document.body.classList.add('no-scroll');
-  }
+  scrollPosition = window.scrollY;
+
+  modalImages = images;
+  modalIndex = index;
+
+  showModalImage();
+
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.classList.add('no-scroll');
+
+  $('#photoModal').classList.add('is-open');
+}
 
   function closePhotoModal() {
-    $('#photoModal').classList.remove('is-open');
-    document.body.classList.remove('no-scroll');
-  }
+  $('#photoModal').classList.remove('is-open');
+
+  document.body.classList.remove('no-scroll');
+  document.body.style.top = '';
+
+  window.scrollTo(0, scrollPosition);
+}
 
   function showModalImage() {
     const img = $('#modalImg');
