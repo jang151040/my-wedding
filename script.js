@@ -681,7 +681,7 @@ function initGuideAccordion() {
       const isOpen = item.classList.contains('is-open');
 
       if (isOpen) {
-        content.style.maxHeight = content.scrollHeight + 'px';
+        content.style.maxHeight = (content.scrollHeight + 120) + 'px';
 
         requestAnimationFrame(() => {
           content.style.maxHeight = '0px';
@@ -696,7 +696,7 @@ function initGuideAccordion() {
         item.classList.add('is-open');
 
         requestAnimationFrame(() => {
-          content.style.maxHeight = content.scrollHeight + 'px';
+          content.style.maxHeight = (content.scrollHeight + 120) + 'px';
         });
       }
     });
