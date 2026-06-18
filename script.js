@@ -822,7 +822,11 @@ function initGuideAccordion() {
       if (!name || !message) {
   window.showToast('성함과 축하 메시지를 모두 입력해 주세요');
   return;
-}
+}const confirmed = confirm(
+`축하 메시지를 남기시겠습니까?\n작성 후에는 수정이 불가합니다.`
+);
+
+if (!confirmed) return;
 
       try {
         await window.db.collection('messages').add({
