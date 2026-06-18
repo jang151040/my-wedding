@@ -86,7 +86,7 @@
   let toastTimer = null;
   function showToast(message) {
     const el = $('#toast');
-    el.textContent = message;
+    el.textContent = `✓ ${message}`;
     el.classList.add('is-visible');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2500);

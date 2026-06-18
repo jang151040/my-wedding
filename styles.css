@@ -225,18 +225,30 @@ a {
   position: fixed;
   bottom: calc(2rem + var(--safe-bottom));
   left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--color-toast-bg);
-  color: var(--color-white);
-  padding: 0.75rem 1.5rem;
-  border-radius: 100px;
-  font-size: 0.8125rem;
+  transform: translateX(-50%) translateY(18px);
+
+  background: rgba(58, 50, 40, 0.92);
+  color: #fff;
+
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+
+  font-size: 0.82rem;
   font-weight: 300;
+  letter-spacing: 0.5px;
+
   z-index: 10000;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
   white-space: nowrap;
+
+  box-shadow: 0 12px 30px rgba(40, 30, 20, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    opacity 0.32s ease,
+    transform 0.32s cubic-bezier(.22,.61,.36,1);
 }
 
 .toast.is-visible {
