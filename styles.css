@@ -1303,41 +1303,53 @@ a {
 /* ---------- 입력창 ---------- */
 
 .message__input,
-.message__textarea {
-  display: block;
-  width: 100%;
-  padding: 1rem 1.1rem;
+.message__textarea{
 
-  border: 1px solid rgba(184,149,106,.22);
-  border-radius: 18px;
+    display:block;
+    width:100%;
 
-  background: rgba(255,255,255,.82);
+    padding:1rem 1.1rem;
 
-  color: var(--color-text);
-  font-family: var(--font-serif);
-  font-size: .92rem;
+    border:1px solid rgba(184,149,106,.22);
+    border-radius:18px;
 
-  margin-bottom: .9rem;
-  outline: none;
+    background:rgba(255,255,255,.82);
 
-  box-shadow:
-      0 12px 28px rgba(80,60,40,.045);
+    color:var(--color-text);
+    font-family:var(--font-serif);
+    font-size:.92rem;
 
-  transition: .25s;
-}
+    outline:none;
 
-.message__input:focus,
-.message__textarea:focus{
-    border-color:#b89977;
     box-shadow:
-        0 0 0 4px rgba(184,153,119,.12),
-        0 12px 30px rgba(80,60,40,.08);
+        0 12px 28px rgba(80,60,40,.045);
+
+    transition:.25s;
 }
 
+/* 이름 입력창 아래 간격 */
+.message__input{
+    margin-bottom:18px;
+}
+
+/* 메시지 입력창 아래 간격 */
 .message__textarea{
     min-height:130px;
     resize:none;
     line-height:1.9;
+    margin-bottom:26px;
+}
+
+/* 포커스 */
+
+.message__input:focus,
+.message__textarea:focus{
+
+    border-color:#b89977;
+
+    box-shadow:
+        0 0 0 4px rgba(184,153,119,.12),
+        0 12px 30px rgba(80,60,40,.08);
 }
 
 /* ---------- 버튼 ---------- */
