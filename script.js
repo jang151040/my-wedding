@@ -948,13 +948,20 @@ if (messageSubmitBtn) {
         const data = doc.data();
 
         const item = document.createElement('div');
-        item.className = 'message__item is-new';
-        item.innerHTML = `
-          <p class="message__item-name">${data.name}</p>
-          <p class="message__item-text">${data.message}</p>
-        `;
+item.className = 'message__item';
 
-        messageList.appendChild(item);
+const nameEl = document.createElement('p');
+nameEl.className = 'message__item-name';
+nameEl.textContent = data.name || '';
+
+const textEl = document.createElement('p');
+textEl.className = 'message__item-text';
+textEl.textContent = data.message || '';
+
+item.appendChild(nameEl);
+item.appendChild(textEl);
+
+messageList.appendChild(item);
       });
     });
 }
