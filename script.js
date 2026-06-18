@@ -508,13 +508,33 @@ function closePhotoModal() {
 }
 
   function showModalImage() {
-    const img = $('#modalImg');
-    img.src = modalImages[modalIndex];
-    $('#modalCounter').textContent = `${modalIndex + 1} / ${modalImages.length}`;
+  const img = $('#modalImg');
 
-    $('#modalPrev').style.display = modalIndex > 0 ? '' : 'none';
-    $('#modalNext').style.display = modalIndex < modalImages.length - 1 ? '' : 'none';
-  }
+  // 사라지는 애니메이션 시작
+  img.classList.add('is-changing');
+
+  // 다음 이미지 미리 로드
+  const nextImage = new Image();
+  nextImage.src = modalImages[modalIndex];
+
+  nextImage.onload = () => {
+    img.src = nextImage.src;
+
+    $('#modalCounter').textContent =
+      `${modalIndex + 1} / ${modalImages.length}`;
+
+    $('#modalPrev').style.display =
+      modalIndex > 0 ? '' : 'none';
+
+    $('#modalNext').style.display =
+      modalIndex < modalImages.length - 1 ? '' : 'none';
+
+    // 다음 프레임에서 다시 나타남
+    requestAnimationFrame(() => {
+      img.classList.remove('is-changing');
+    });
+  };
+}
 
   function modalNavigate(dir) {
     const newIndex = modalIndex + dir;
