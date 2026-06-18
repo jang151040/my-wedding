@@ -486,17 +486,15 @@
   let touchEndY = 0;
 
   function openPhotoModal(images, index) {
-  scrollPosition = window.scrollY || document.documentElement.scrollTop;
+  scrollPosition = window.scrollY;
 
   modalImages = images;
   modalIndex = index;
+
   showModalImage();
 
-  document.body.style.position = 'fixed';
   document.body.style.top = `-${scrollPosition}px`;
-  document.body.style.left = '0';
-  document.body.style.right = '0';
-  document.body.style.width = '100%';
+  document.body.classList.add('no-scroll');
 
   $('#photoModal').classList.add('is-open');
 }
@@ -504,13 +502,14 @@
 function closePhotoModal() {
   $('#photoModal').classList.remove('is-open');
 
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.left = '';
-  document.body.style.right = '';
-  document.body.style.width = '';
+  const y = scrollPosition;
 
-  window.scrollTo(0, scrollPosition);
+  document.body.classList.remove('no-scroll');
+  document.body.style.top = '';
+
+  requestAnimationFrame(() => {
+    window.scrollTo(0, y);
+  });
 }
 
   function showModalImage() {
