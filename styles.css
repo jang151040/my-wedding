@@ -1662,3 +1662,12 @@ img.is-loaded {
         transform:translateY(0) scale(1);
     }
 }
+
+.message__counter{
+  text-align:right;
+  font-size:.76rem;
+  color:var(--color-text-muted);
+  margin-top:-16px;
+  margin-bottom:20px;
+  letter-spacing:.5px;
+}

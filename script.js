@@ -831,86 +831,100 @@ function initGuideAccordion() {
 })();
 
   // ===== Firebase Guestbook =====
-  const messageSubmitBtn = document.getElementById('messageSubmitBtn');
+const messageSubmitBtn = document.getElementById('messageSubmitBtn');
 
-  if (messageSubmitBtn) {
-    const nameInput = document.getElementById('guestName');
-    const messageInput = document.getElementById('guestMessage');
-    const messageList = document.querySelector('.message__list');
-    const emptyMessage = document.querySelector('.message__empty');
+if (messageSubmitBtn) {
+  const nameInput = document.getElementById('guestName');
+  const messageInput = document.getElementById('guestMessage');
+  const messageCounter = document.getElementById('messageCounter');
+  const messageList = document.querySelector('.message__list');
+  const emptyMessage = document.querySelector('.message__empty');
 
-    messageSubmitBtn.addEventListener('click', async () => {
-      const name = nameInput.value.trim();
-      const message = messageInput.value.trim();
+  if (messageCounter) {
+    messageCounter.textContent = '0 / 150';
+  }
 
-      if (!name || !message) {
-  window.showToast('성함과 축하 메시지를 모두 입력해 주세요');
-  return;
-}
+  messageInput.addEventListener('input', () => {
+    if (messageCounter) {
+      messageCounter.textContent = `${messageInput.value.length} / 150`;
+    }
+  });
 
-const confirmed = confirm(
-  '축하 메시지를 남기시겠습니까?\n\n작성 후에는 수정이 불가합니다.'
-);
+  messageSubmitBtn.addEventListener('click', async () => {
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
 
-if (!confirmed) return;
+    if (!name || !message) {
+      window.showToast('성함과 축하 메시지를 모두 입력해 주세요');
+      return;
+    }
 
-const originalBtnText = messageSubmitBtn.textContent;
-messageSubmitBtn.textContent = '메시지 등록 중...';
-messageSubmitBtn.disabled = true;
+    const confirmed = confirm(
+      '축하 메시지를 남기시겠습니까?\n\n작성 후에는 수정이 불가합니다.'
+    );
 
-try {
+    if (!confirmed) return;
 
-    const start = Date.now();
+    const originalBtnText = messageSubmitBtn.textContent;
+    messageSubmitBtn.textContent = '메시지 등록 중...';
+    messageSubmitBtn.disabled = true;
 
-    await window.db.collection('messages').add({
+    try {
+      const start = Date.now();
+
+      await window.db.collection('messages').add({
         name,
         message,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    const elapsed = Date.now() - start;
-    if (elapsed < 800) {
-        await new Promise(resolve => setTimeout(resolve, 800 - elapsed));
-    }
-
-    nameInput.value = '';
-    messageInput.value = '';
-    window.showToast('축하 메시지가 남겨졌습니다');
-
-} catch (error) {
-  console.error(error);
-  window.showToast('메시지 저장 중 오류가 발생했습니다');
-  
-} finally {
-  messageSubmitBtn.textContent = originalBtnText;
-  messageSubmitBtn.disabled = false;
-}
-    });
-
-    window.db.collection('messages')
-      .orderBy('createdAt', 'desc')
-      .onSnapshot((snapshot) => {
-        document.querySelectorAll('.message__item').forEach(item => item.remove());
-
-        if (snapshot.empty) {
-          if (emptyMessage) emptyMessage.style.display = 'block';
-          return;
-        }
-
-        if (emptyMessage) emptyMessage.style.display = 'none';
-
-        snapshot.forEach((doc) => {
-          const data = doc.data();
-
-          const item = document.createElement('div');
-          item.className = 'message__item';
-          item.innerHTML = `
-            <p class="message__item-name">${data.name}</p>
-            <p class="message__item-text">${data.message}</p>
-          `;
-
-          messageList.appendChild(item);
-          item.classList.add('is-new');
-        });
       });
-  }
+
+      const elapsed = Date.now() - start;
+      if (elapsed < 800) {
+        await new Promise(resolve => setTimeout(resolve, 800 - elapsed));
+      }
+
+      nameInput.value = '';
+      messageInput.value = '';
+
+      if (messageCounter) {
+        messageCounter.textContent = '0 / 150';
+      }
+
+      window.showToast('축하 메시지가 남겨졌습니다');
+
+    } catch (error) {
+      console.error(error);
+      window.showToast('메시지 저장 중 오류가 발생했습니다');
+
+    } finally {
+      messageSubmitBtn.textContent = originalBtnText;
+      messageSubmitBtn.disabled = false;
+    }
+  });
+
+  window.db.collection('messages')
+    .orderBy('createdAt', 'desc')
+    .onSnapshot((snapshot) => {
+      document.querySelectorAll('.message__item').forEach(item => item.remove());
+
+      if (snapshot.empty) {
+        if (emptyMessage) emptyMessage.style.display = 'block';
+        return;
+      }
+
+      if (emptyMessage) emptyMessage.style.display = 'none';
+
+      snapshot.forEach((doc) => {
+        const data = doc.data();
+
+        const item = document.createElement('div');
+        item.className = 'message__item is-new';
+        item.innerHTML = `
+          <p class="message__item-name">${data.name}</p>
+          <p class="message__item-text">${data.message}</p>
+        `;
+
+        messageList.appendChild(item);
+      });
+    });
+}
