@@ -1618,3 +1618,12 @@ a {
   color: #fff;
   border-color: #b8956a;
 }
+
+img {
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+img.is-loaded {
+  opacity: 1;
+}

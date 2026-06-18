@@ -687,19 +687,22 @@ function initGuideAccordion() {
 
     // Copy account delegates
     document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.account-item__copy');
-      if (!btn) return;
-      const text = btn.dataset.account;
-      copyToClipboard(text, '계좌번호가 복사되었습니다');
-      const originalText = btn.textContent;
-btn.textContent = '복사 완료 ✓';
-btn.disabled = true;
+    const btn = e.target.closest('.account-item__copy');
+    if (!btn) return;
 
-setTimeout(() => {
-  btn.textContent = originalText;
-  btn.disabled = false;
-}, 1200);
-    });
+    const text = btn.dataset.account;
+
+    copyToClipboard(text, '계좌번호가 복사되었습니다');
+
+    const originalText = btn.textContent;
+    btn.textContent = '복사 완료 ✓';
+    btn.disabled = true;
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+    }, 1200);
+});
   }
 
   /* ═══════════════════════════════════════════
@@ -773,6 +776,18 @@ setTimeout(() => {
      Init
      ═══════════════════════════════════════════ */
 
+  function initImageFadeIn() {
+  document.querySelectorAll('img').forEach((img) => {
+    if (img.complete) {
+      img.classList.add('is-loaded');
+    } else {
+      img.addEventListener('load', () => {
+        img.classList.add('is-loaded');
+      });
+    }
+  });
+}
+
   async function init() {
     setMetaTags();
     initPetals();
@@ -805,6 +820,7 @@ setTimeout(() => {
     // Render sections with discovered images
     initStory(storyImages);
     initGallery(galleryImages);
+    initImageFadeIn();
   }
 
   if (document.readyState === 'loading') {
