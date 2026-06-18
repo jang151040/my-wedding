@@ -111,9 +111,9 @@ window.showToast = function (message) {
         document.execCommand('copy');
         ta.remove();
       }
-      showToast(successMsg || '복사되었습니다');
+      window.showToast(successMsg || '복사되었습니다');
     } catch {
-      showToast('복사에 실패했습니다');
+      window.showToast('복사에 실패했습니다');
     }
   }
 
@@ -392,7 +392,7 @@ window.showToast = function (message) {
       a.download = 'wedding.ics';
       a.click();
       URL.revokeObjectURL(url);
-      showToast('캘린더 파일이 다운로드됩니다');
+      window.showToast('캘린더 파일이 다운로드됩니다');
     });
   }
 
