@@ -7,7 +7,6 @@
   'use strict';
 
   const firebaseConfig = {
-  window.db = firebase.firestore();
     apiKey: "AIzaSyBHuuJskiWnPD5lFGv9HXNsZTMsgsAVTSk",
     authDomain: "jaegwan-wedding.firebaseapp.com",
     projectId: "jaegwan-wedding",
