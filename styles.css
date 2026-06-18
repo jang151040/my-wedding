@@ -1581,3 +1581,40 @@ a {
     transform: translateY(0) scale(1);
   }
 }
+
+/* ===== Button Premium Shape ===== */
+
+.btn,
+.account-item__copy {
+  border-radius: 999px;
+}
+
+.btn--outline {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(184,149,106,.25);
+  color: #6b5a4d;
+  box-shadow: 0 8px 20px rgba(80,60,40,.05);
+}
+
+.btn--outline:hover {
+  background: #fff;
+  border-color: rgba(184,149,106,.55);
+  color: #8f6f4d;
+}
+
+.btn--kakao,
+.btn--naver {
+  box-shadow: 0 10px 24px rgba(80,60,40,.10);
+}
+
+.account-item__copy {
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 4px 12px rgba(80,60,40,.05);
+}
+
+.account-item__copy:disabled {
+  opacity: 1;
+  background: #b8956a;
+  color: #fff;
+  border-color: #b8956a;
+}
