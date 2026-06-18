@@ -1331,7 +1331,7 @@ a {
     min-height:130px;
     resize:none;
     line-height:1.9;
-    margin-bottom:26px;
+    margin-bottom:8px;
 }
 
 /* 포커스 */
@@ -1658,14 +1658,13 @@ img.is-loaded {
 }
 
 .message__counter{
-    margin-top:4px;
+    margin-top:0;
+    margin-bottom:18px;
     padding-right:4px;
 
     text-align:right;
-
     font-size:.76rem;
     letter-spacing:.4px;
-
     color:rgba(90,70,55,.45);
 
     transition:
