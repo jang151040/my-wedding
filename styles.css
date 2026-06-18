@@ -1520,3 +1520,58 @@ a {
     }
 
 }
+
+/* ===== App-like Interaction Polish ===== */
+
+.btn,
+.message__button,
+.account-item__copy,
+.accordion__trigger,
+.guide__item summary,
+.gallery__item,
+.story__photo-item {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn,
+.account-item__copy,
+.message__button {
+  transition:
+    transform .22s cubic-bezier(.22,.61,.36,1),
+    box-shadow .22s cubic-bezier(.22,.61,.36,1),
+    filter .22s ease,
+    background .22s ease,
+    color .22s ease,
+    border-color .22s ease;
+  will-change: transform;
+}
+
+.btn:hover,
+.account-item__copy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(80,60,40,.10);
+}
+
+.btn:active,
+.account-item__copy:active,
+.message__button:active {
+  transform: scale(.975);
+  filter: brightness(.96);
+}
+
+.accordion__trigger:active,
+.guide__item summary:active {
+  transform: scale(.992);
+}
+
+.gallery__item,
+.story__photo-item {
+  transition:
+    transform .25s cubic-bezier(.22,.61,.36,1),
+    box-shadow .25s ease;
+}
+
+.gallery__item:active,
+.story__photo-item:active {
+  transform: scale(.975);
+}
