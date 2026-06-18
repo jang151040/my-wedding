@@ -261,7 +261,8 @@
     <div class="message__form animate-item" data-animate="fade-up">
       <input class="message__input" type="text" id="guestName" placeholder="성함을 입력해 주세요.">
 
-      <textarea class="message__textarea" id="guestMessage" placeholder="축하의 말씀을 남겨주세요 ♡"></textarea>
+      <textarea class="message__textarea" id="guestMessage" maxlength="150" placeholder="축하의 말씀을 남겨주세요 ♡"></textarea>
+      <p class="message__counter" id="messageCounter">0 / 150</p>
 
       <button class="message__button" type="button" id="messageSubmitBtn">
         축하 메시지 남기기
