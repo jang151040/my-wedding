@@ -869,7 +869,8 @@ a {
 .accordion__panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease;
+  transition: max-height 0.35s ease;
+  will-change: max-height;
 }
 
 .accordion__panel-inner {

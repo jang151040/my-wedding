@@ -642,20 +642,27 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
   }
 
   function initAccordion(triggerId, panelId) {
-    const trigger = $(`#${triggerId}`);
-    const panel = $(`#${panelId}`);
+  const trigger = $(`#${triggerId}`);
+  const panel = $(`#${panelId}`);
 
-    trigger.addEventListener('click', () => {
-      const expanded = trigger.getAttribute('aria-expanded') === 'true';
-      trigger.setAttribute('aria-expanded', !expanded);
+  if (!trigger || !panel) return;
 
-      if (!expanded) {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      } else {
-        panel.style.maxHeight = '0';
-      }
-    });
-  }
+  trigger.addEventListener('click', () => {
+    const expanded = trigger.getAttribute('aria-expanded') === 'true';
+
+    trigger.setAttribute('aria-expanded', String(!expanded));
+
+    if (!expanded) {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+
+      requestAnimationFrame(() => {
+        panel.style.maxHeight = '0px';
+      });
+    }
+  });
+}
 
   function initAccounts() {
     renderAccounts(CONFIG.accounts.groom, 'groomAccountList');
