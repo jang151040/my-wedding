@@ -34,7 +34,7 @@
 
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-lg: 22px;
 
   --transition: 0.3s ease;
   --transition-slow: 0.6s ease;
@@ -873,7 +873,7 @@ a {
   font-size: 0.8125rem;
   font-weight: 300;
   letter-spacing: 1px;
-  border-radius: var(--radius-sm);
+  border-radius:999px;
   transition: var(--transition);
   cursor: pointer;
   line-height: 1;
@@ -906,7 +906,6 @@ a {
   background: var(--color-kakao);
   color: #3a1d1d;
   padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-sm);
   font-weight: 400;
 }
 
@@ -918,7 +917,6 @@ a {
   background: var(--color-naver);
   color: var(--color-white);
   padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-sm);
   font-weight: 400;
 }
 
@@ -1491,9 +1489,8 @@ a {
 
 /* ===== Button Premium Shape ===== */
 
-.btn,
-.account-item__copy {
-  border-radius: 999px;
+.account-item__copy{
+    border-radius:999px;
 }
 
 .btn--outline {
