@@ -84,13 +84,14 @@
      ═══════════════════════════════════════════ */
 
   let toastTimer = null;
-  function showToast(message) {
-    const el = $('#toast');
-    el.textContent = `✓ ${message}`;
-    el.classList.add('is-visible');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2500);
-  }
+
+window.showToast = function (message) {
+  const el = $('#toast');
+  el.textContent = `✓ ${message}`;
+  el.classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2500);
+};
 
   /* ═══════════════════════════════════════════
      Clipboard
@@ -819,7 +820,9 @@ function initGuideAccordion() {
       const message = messageInput.value.trim();
 
       if (!name || !message) {
-        showToast('성함과 축하 메시지를 모두 입력해 주세요');
+        window.showToast('성함과 축하 메시지를 모두 입력해 주세요');
+        window.showToast('축하 메시지가 남겨졌습니다');
+        window.showToast('메시지 저장 중 오류가 발생했습니다');
         return;
       }
 
