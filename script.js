@@ -5,7 +5,9 @@
 
 (function () {
   'use strict';
+
   const firebaseConfig = {
+  window.db = firebase.firestore();
     apiKey: "AIzaSyBHuuJskiWnPD5lFGv9HXNsZTMsgsAVTSk",
     authDomain: "jaegwan-wedding.firebaseapp.com",
     projectId: "jaegwan-wedding",
@@ -15,7 +17,6 @@
   };
 
   firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
 
   /* ═══════════════════════════════════════════
      Utility Helpers
@@ -791,7 +792,7 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
       }
 
       try {
-        await db.collection('messages').add({
+        await window.db.collection('messages').add({
           name,
           message,
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -806,7 +807,7 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
       }
     });
 
-    db.collection('messages')
+    window.db.collection('messages')
       .orderBy('createdAt', 'desc')
       .onSnapshot((snapshot) => {
         document.querySelectorAll('.message__item').forEach(item => item.remove());
