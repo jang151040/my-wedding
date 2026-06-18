@@ -482,8 +482,13 @@ window.showToast = function (message) {
 function closePhotoModal() {
   const modal = $('#photoModal');
   const body = document.body;
+  const html = document.documentElement;
+  const y = scrollPosition;
 
   modal.classList.remove('is-open');
+
+  const prevScrollBehavior = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
 
   body.style.position = '';
   body.style.top = '';
@@ -491,7 +496,15 @@ function closePhotoModal() {
   body.style.right = '';
   body.style.width = '';
 
-  window.scrollTo(0, scrollPosition);
+  window.scrollTo({
+    top: y,
+    left: 0,
+    behavior: 'auto'
+  });
+
+  requestAnimationFrame(() => {
+    html.style.scrollBehavior = prevScrollBehavior;
+  });
 }
 
   function showModalImage() {
