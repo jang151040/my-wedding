@@ -664,6 +664,41 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
   });
 }
 
+function initGuideAccordion() {
+  $$('.guide__item').forEach((item) => {
+    const summary = item.querySelector('summary');
+    const content = item.querySelector('.guide__content');
+
+    if (!summary || !content) return;
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const isOpen = item.classList.contains('is-open');
+
+      if (isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+
+        requestAnimationFrame(() => {
+          content.style.maxHeight = '0px';
+          item.classList.remove('is-open');
+        });
+
+        setTimeout(() => {
+          item.removeAttribute('open');
+        }, 400);
+      } else {
+        item.setAttribute('open', '');
+        item.classList.add('is-open');
+
+        requestAnimationFrame(() => {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        });
+      }
+    });
+  });
+}
+
   function initAccounts() {
     renderAccounts(CONFIG.accounts.groom, 'groomAccountList');
     renderAccounts(CONFIG.accounts.bride, 'brideAccountList');
@@ -766,6 +801,7 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
     initPhotoModal();
     initLocation();
     initAccounts();
+    initGuideAccordion();
     initFooter();
     initScrollAnimations();
 
