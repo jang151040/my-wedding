@@ -1639,3 +1639,11 @@ img {
 img.is-loaded {
   opacity: 1;
 }
+
+.message__button:disabled{
+    opacity:.75;
+    cursor:default;
+    transform:none !important;
+    filter:none !important;
+    pointer-events:none;
+}

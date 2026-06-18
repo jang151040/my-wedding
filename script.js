@@ -852,7 +852,11 @@ function initGuideAccordion() {
 
 if (!confirmed) return;
 
-      try {
+const originalBtnText = messageSubmitBtn.textContent;
+messageSubmitBtn.textContent = '메시지 등록 중...';
+messageSubmitBtn.disabled = true;
+
+try {
         await window.db.collection('messages').add({
           name,
           message,
@@ -865,6 +869,9 @@ if (!confirmed) return;
       } catch (error) {
   console.error(error);
   window.showToast('메시지 저장 중 오류가 발생했습니다');
+} finally {
+  messageSubmitBtn.textContent = originalBtnText;
+  messageSubmitBtn.disabled = false;
 }
     });
 
