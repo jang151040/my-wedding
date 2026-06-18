@@ -17,6 +17,7 @@
   };
 
   firebase.initializeApp(firebaseConfig);
+  window.db = firebase.firestore();
 
   /* ═══════════════════════════════════════════
      Utility Helpers
