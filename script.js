@@ -499,13 +499,21 @@
   $('#photoModal').classList.add('is-open');
 }
 
-  function closePhotoModal() {
+function closePhotoModal() {
   $('#photoModal').classList.remove('is-open');
+
+  const y = Math.abs(parseInt(document.body.style.top || '0', 10));
 
   document.body.classList.remove('no-scroll');
   document.body.style.top = '';
+  document.body.style.position = '';
+  document.body.style.width = '';
 
-  window.scrollTo(0, scrollPosition);
+  window.scrollTo({
+    top: y,
+    left: 0,
+    behavior: 'instant'
+  });
 }
 
   function showModalImage() {
