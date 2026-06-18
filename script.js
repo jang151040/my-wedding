@@ -461,30 +461,37 @@ window.showToast = function (message) {
   let touchEndY = 0;
 
   function openPhotoModal(images, index) {
-  scrollPosition = window.scrollY;
+  scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
   modalImages = images;
   modalIndex = index;
 
   showModalImage();
 
-  document.body.style.top = `-${scrollPosition}px`;
-  document.body.classList.add('no-scroll');
+  const body = document.body;
+
+  body.style.position = 'fixed';
+  body.style.top = `-${scrollPosition}px`;
+  body.style.left = '0';
+  body.style.right = '0';
+  body.style.width = '100%';
 
   $('#photoModal').classList.add('is-open');
 }
 
 function closePhotoModal() {
-  $('#photoModal').classList.remove('is-open');
+  const modal = $('#photoModal');
+  const body = document.body;
 
-  const y = scrollPosition;
+  modal.classList.remove('is-open');
 
-  document.body.classList.remove('no-scroll');
-  document.body.style.top = '';
+  body.style.position = '';
+  body.style.top = '';
+  body.style.left = '';
+  body.style.right = '';
+  body.style.width = '';
 
-  requestAnimationFrame(() => {
-    window.scrollTo(0, y);
-  });
+  window.scrollTo(0, scrollPosition);
 }
 
   function showModalImage() {

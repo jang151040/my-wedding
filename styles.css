@@ -74,12 +74,6 @@ body {
   padding-right: var(--safe-right);
 }
 
-body.no-scroll {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-}
-
 img {
   display: block;
   max-width: 100%;
