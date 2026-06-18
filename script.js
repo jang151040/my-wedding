@@ -846,8 +846,10 @@ function initGuideAccordion() {
       if (!name || !message) {
   window.showToast('성함과 축하 메시지를 모두 입력해 주세요');
   return;
-}const confirmed = confirm(
-`축하 메시지를 남기시겠습니까?\n작성 후에는 수정이 불가합니다.`
+}
+
+const confirmed = confirm(
+  '축하 메시지를 남기시겠습니까?\n\n작성 후에는 수정이 불가합니다.'
 );
 
 if (!confirmed) return;
@@ -857,18 +859,28 @@ messageSubmitBtn.textContent = '메시지 등록 중...';
 messageSubmitBtn.disabled = true;
 
 try {
-        await window.db.collection('messages').add({
-          name,
-          message,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
 
-        nameInput.value = '';
-        messageInput.value = '';
-        window.showToast('축하 메시지가 남겨졌습니다');
-      } catch (error) {
+    const start = Date.now();
+
+    await window.db.collection('messages').add({
+        name,
+        message,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    const elapsed = Date.now() - start;
+    if (elapsed < 800) {
+        await new Promise(resolve => setTimeout(resolve, 800 - elapsed));
+    }
+
+    nameInput.value = '';
+    messageInput.value = '';
+    window.showToast('축하 메시지가 남겨졌습니다');
+
+} catch (error) {
   console.error(error);
   window.showToast('메시지 저장 중 오류가 발생했습니다');
+  
 } finally {
   messageSubmitBtn.textContent = originalBtnText;
   messageSubmitBtn.disabled = false;
