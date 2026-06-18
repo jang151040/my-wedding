@@ -787,7 +787,7 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
       const message = messageInput.value.trim();
 
       if (!name || !message) {
-        alert('성함과 축하 메시지를 모두 입력해 주세요.');
+        showToast('성함과 축하 메시지를 모두 입력해 주세요');
         return;
       }
 
@@ -800,10 +800,10 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
 
         nameInput.value = '';
         messageInput.value = '';
-        alert('축하 메시지가 남겨졌습니다.');
+        showToast('축하 메시지가 남겨졌습니다');
       } catch (error) {
         console.error(error);
-        alert('메시지 저장 중 오류가 발생했습니다.');
+        showToast('메시지 저장 중 오류가 발생했습니다');
       }
     });
 
