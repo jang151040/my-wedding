@@ -137,32 +137,6 @@
      Curtain
      ═══════════════════════════════════════════ */
 
-  function initCurtain() {
-    const curtain = $('#curtain');
-    const btn = $('#curtainBtn');
-    const namesEl = $('#curtainNames');
-
-    // If useCurtain is false, skip the curtain entirely
-    if (CONFIG.useCurtain === false) {
-      curtain.style.display = 'none';
-      initPetals();
-      return;
-    }
-
-    namesEl.textContent = `${CONFIG.groom.name}  &  ${CONFIG.bride.name}`;
-
-    btn.addEventListener('click', () => {
-      curtain.classList.add('is-open');
-      document.body.classList.remove('no-scroll');
-      setTimeout(() => {
-        curtain.classList.add('is-hidden');
-        initPetals();
-      }, 1400);
-    });
-
-    document.body.classList.add('no-scroll');
-  }
-
   /* ═══════════════════════════════════════════
      Falling Petals
      ═══════════════════════════════════════════ */
@@ -792,7 +766,7 @@ function initGuideAccordion() {
 
   async function init() {
     setMetaTags();
-    initCurtain();
+    initPetals();
     initHero();
     initCountdown();
     initGreeting();
