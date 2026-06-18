@@ -1263,7 +1263,7 @@ a {
 }
 
 .message__desc {
-  font-size: 0.9rem;
+  font-size: .9rem;
   font-weight: 300;
   color: var(--color-text-light);
   line-height: 1.9;
@@ -1275,152 +1275,228 @@ a {
   margin: 0 auto 2.5rem;
 }
 
+/* ---------- 입력창 ---------- */
+
 .message__input,
 .message__textarea {
   display: block;
   width: 100%;
-  border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.75);
+  padding: 1rem 1.1rem;
+
+  border: 1px solid rgba(184,149,106,.22);
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.82);
+
   color: var(--color-text);
   font-family: var(--font-serif);
-  font-size: 0.9rem;
-  padding: 1rem;
-  margin-bottom: 0.9rem;
-  border-radius: 10px;
+  font-size: .92rem;
+
+  margin-bottom: .9rem;
   outline: none;
+
+  box-shadow:
+      0 12px 28px rgba(80,60,40,.045);
+
+  transition: .25s;
 }
+
 .message__input:focus,
-.message__textarea:focus {
-    border-color: #b89977;
-    box-shadow: 0 0 0 4px rgba(184,153,119,.12);
+.message__textarea:focus{
+    border-color:#b89977;
+    box-shadow:
+        0 0 0 4px rgba(184,153,119,.12),
+        0 12px 30px rgba(80,60,40,.08);
 }
 
-.message__textarea {
-  min-height: 120px;
-  resize: none;
-  line-height: 1.8;
+.message__textarea{
+    min-height:130px;
+    resize:none;
+    line-height:1.9;
 }
 
-.message__button {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(180deg,#4e4137,#372c24);
-    color:#fff;
+/* ---------- 버튼 ---------- */
+
+.message__button{
+
+    width:100%;
+    padding:1rem;
+
+    border:none;
+    border-radius:18px;
+
+    cursor:pointer;
+
     font-family:var(--font-serif);
     font-size:.95rem;
     letter-spacing:2px;
-    border:none;
-    border-radius:14px;
-    cursor:pointer;
-    transition:.25s;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    color:#fff;
+
+    background:
+    linear-gradient(180deg,#55473b,#392e26);
+
+    box-shadow:
+    0 12px 28px rgba(0,0,0,.14);
+
+    transition:.28s;
 }
 
 .message__button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 16px 35px rgba(0,0,0,.18);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.18);
 }
 
 .message__button:active{
-    transform:translateY(0);
+
+    transform:translateY(-1px);
 }
 
-.message__list {
-  max-width: 400px;
-  margin: 3rem auto 0;
-  text-align: center;
+/* ---------- 리스트 ---------- */
+
+.message__list{
+
+    max-width:400px;
+    margin:3rem auto 0;
+
+    text-align:center;
 }
 
-.message__list-title {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  letter-spacing:2px;
-  color:#6d5848;
-  margin-bottom:1.4rem;
+.message__list-title{
+
+    font-family:var(--font-serif);
+    font-size:1.02rem;
+
+    letter-spacing:2px;
+    color:#6d5848;
+
+    margin-bottom:1.4rem;
 }
 
-.message__empty {
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
+.message__empty{
+
+    color:var(--color-text-muted);
+    font-size:.85rem;
 }
 
-.message__item {
-  position: relative;
-  background: rgba(255,255,255,0.82);
-  border: 1px solid rgba(190,165,135,.22);
-  border-radius: 18px;
-  padding: 1.2rem 1.3rem;
-  margin-bottom: 1rem;
-  text-align: left;
-  box-shadow:
-      0 10px 25px rgba(0,0,0,.04),
-      0 2px 8px rgba(120,90,60,.05);
-  transition: all .25s ease;
+/* ---------- 카드 ---------- */
+
+.message__item{
+
+    position:relative;
+
+    background:rgba(255,255,255,.88);
+
+    border:1px solid rgba(190,165,135,.18);
+    border-left:3px solid #c6a27a;
+
+    border-radius:20px;
+
+    padding:1.45rem 1.5rem;
+
+    margin-bottom:1rem;
+
+    text-align:left;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.045),
+        0 2px 10px rgba(120,90,60,.04);
+
+    transition:.28s;
 }
 
 .message__item:hover{
-  transform: translateY(-2px);
-  box-shadow:
-      0 14px 35px rgba(0,0,0,.08),
-      0 4px 10px rgba(120,90,60,.08);
+
+    transform:
+        translateY(-3px)
+        scale(1.01);
+
+    box-shadow:
+        0 20px 42px rgba(0,0,0,.08),
+        0 6px 16px rgba(120,90,60,.08);
 }
 
 .message__item::before{
-  content:"❦";
-  position:absolute;
-  top:10px;
-  right:14px;
-  font-size:18px;
-  color:#d7c0a4;
-  opacity:.6;
+
+    content:"♡";
+
+    position:absolute;
+
+    top:14px;
+    right:18px;
+
+    font-size:17px;
+
+    color:#d3b38d;
+
+    opacity:.65;
 }
 
+/* ---------- 이름 ---------- */
+
 .message__item-name{
-  font-size:.82rem;
-  font-weight:600;
-  color:#6c5645;
-  letter-spacing:1px;
-  margin-bottom:.55rem;
+
+    display:inline-block;
+
+    padding-bottom:8px;
+
+    border-bottom:
+    1px solid rgba(198,162,122,.28);
+
+    font-size:.86rem;
+
+    font-weight:600;
+
+    letter-spacing:1.2px;
+
+    color:#6b5543;
+
+    margin-bottom:.8rem;
 }
 
 .message__item-name::after{
-  content:" 님";
-  color:#b39a83;
-  font-weight:400;
+
+    content:" 님";
+
+    font-weight:400;
+
+    color:#b2977e;
 }
+
+/* ---------- 내용 ---------- */
 
 .message__item-text{
-  font-size:.9rem;
-  color:#5d5148;
-  line-height:1.9;
-  white-space:pre-line;
+
+    color:#6a5d53;
+
+    font-size:.9rem;
+
+    line-height:1.95;
+
+    white-space:pre-line;
 }
 
-/* ===== Premium Balance Upgrade ===== */
+/* ===== Premium Balance ===== */
 
-.section__title {
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 5px;
+.section__title{
+
+    font-size:1.5rem;
+
+    font-weight:400;
+
+    letter-spacing:5px;
 }
 
 .calendar,
 .accordion,
-.guide__content,
-.message__input,
-.message__textarea,
-.message__item {
-  border-radius: 18px;
-  border: 1px solid rgba(184, 149, 106, 0.22);
-  box-shadow: 0 14px 34px rgba(80, 60, 40, 0.055);
-}
+.guide__content{
 
-.message__button {
-  border-radius: 18px;
-  box-shadow: 0 14px 32px rgba(47, 36, 28, 0.18);
-}
+    border-radius:18px;
 
-.message__item {
-  padding: 1.35rem 1.35rem;
+    border:1px solid rgba(184,149,106,.20);
+
+    box-shadow:
+        0 14px 34px rgba(80,60,40,.05);
 }
