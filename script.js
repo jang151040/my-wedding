@@ -845,10 +845,20 @@ if (messageSubmitBtn) {
   }
 
   messageInput.addEventListener('input', () => {
-    if (messageCounter) {
-      messageCounter.textContent = `${messageInput.value.length} / 150`;
+    if (!messageCounter) return;
+
+    const len = messageInput.value.length;
+
+    messageCounter.textContent = `${len} / 150`;
+
+    if (len >= 140) {
+        messageCounter.style.color = '#b16d5d';
+        messageCounter.style.opacity = '1';
+    } else {
+        messageCounter.style.color = 'rgba(90,70,55,.45)';
+        messageCounter.style.opacity = '.65';
     }
-  });
+});
 
   messageSubmitBtn.addEventListener('click', async () => {
     const name = nameInput.value.trim();
