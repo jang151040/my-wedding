@@ -820,11 +820,9 @@ function initGuideAccordion() {
       const message = messageInput.value.trim();
 
       if (!name || !message) {
-        window.showToast('성함과 축하 메시지를 모두 입력해 주세요');
-        window.showToast('축하 메시지가 남겨졌습니다');
-        window.showToast('메시지 저장 중 오류가 발생했습니다');
-        return;
-      }
+  window.showToast('성함과 축하 메시지를 모두 입력해 주세요');
+  return;
+}
 
       try {
         await window.db.collection('messages').add({
@@ -835,11 +833,11 @@ function initGuideAccordion() {
 
         nameInput.value = '';
         messageInput.value = '';
-        showToast('축하 메시지가 남겨졌습니다');
+        window.showToast('축하 메시지가 남겨졌습니다');
       } catch (error) {
-        console.error(error);
-        showToast('메시지 저장 중 오류가 발생했습니다');
-      }
+  console.error(error);
+  window.showToast('메시지 저장 중 오류가 발생했습니다');
+}
     });
 
     window.db.collection('messages')
