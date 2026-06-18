@@ -1278,6 +1278,11 @@ a {
   border-radius: 10px;
   outline: none;
 }
+.message__input:focus,
+.message__textarea:focus {
+    border-color: #b89977;
+    box-shadow: 0 0 0 4px rgba(184,153,119,.12);
+}
 
 .message__textarea {
   min-height: 120px;
@@ -1305,9 +1310,10 @@ a {
 
 .message__list-title {
   font-family: var(--font-serif);
-  font-size: 1rem;
-  color: var(--color-text);
-  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  letter-spacing:2px;
+  color:#6d5848;
+  margin-bottom:1.4rem;
 }
 
 .message__empty {
@@ -1316,24 +1322,54 @@ a {
 }
 
 .message__item {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: 0.8rem;
+  position: relative;
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(190,165,135,.22);
+  border-radius: 18px;
+  padding: 1.2rem 1.3rem;
+  margin-bottom: 1rem;
   text-align: left;
+  box-shadow:
+      0 10px 25px rgba(0,0,0,.04),
+      0 2px 8px rgba(120,90,60,.05);
+  transition: all .25s ease;
 }
 
-.message__item-name {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--color-text);
-  margin-bottom: 0.4rem;
+.message__item:hover{
+  transform: translateY(-2px);
+  box-shadow:
+      0 14px 35px rgba(0,0,0,.08),
+      0 4px 10px rgba(120,90,60,.08);
 }
 
-.message__item-text {
-  font-size: 0.85rem;
-  color: var(--color-text-light);
-  line-height: 1.8;
-  white-space: pre-line;
+.message__item::before{
+  content:"❦";
+  position:absolute;
+  top:10px;
+  right:14px;
+  font-size:18px;
+  color:#d7c0a4;
+  opacity:.6;
+}
+
+.message__item-name{
+  font-size:.82rem;
+  font-weight:600;
+  color:#6c5645;
+  letter-spacing:1px;
+  margin-bottom:.55rem;
+}
+
+.message__item-name::after{
+  content:" 님";
+  color:#b39a83;
+  font-weight:400;
+}
+
+.message__item-text{
+  font-size:.9rem;
+  color:#5d5148;
+  line-height:1.9;
+  white-space:pre-line;
+}
 }
