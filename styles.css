@@ -1518,20 +1518,6 @@ a {
         0 14px 34px rgba(80,60,40,.05);
 }
 
-@keyframes messageFade{
-
-    from{
-        opacity:0;
-        transform:translateY(14px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
 /* ===== App-like Interaction Polish ===== */
 
 .btn,
@@ -1578,4 +1564,20 @@ a {
 .gallery__item:active,
 .story__photo-item:active {
   transform: scale(.975);
+}
+
+.message__item {
+  animation: messageCardIn .45s cubic-bezier(.22,.61,.36,1) both;
+}
+
+@keyframes messageCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

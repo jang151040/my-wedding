@@ -691,6 +691,14 @@ function initGuideAccordion() {
       if (!btn) return;
       const text = btn.dataset.account;
       copyToClipboard(text, '계좌번호가 복사되었습니다');
+      const originalText = btn.textContent;
+btn.textContent = '복사 완료 ✓';
+btn.disabled = true;
+
+setTimeout(() => {
+  btn.textContent = originalText;
+  btn.disabled = false;
+}, 1200);
     });
   }
 
