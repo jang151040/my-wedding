@@ -589,7 +589,7 @@ if (window.kakao && kakao.maps && w.kakaoMap) {
   mapImg.outerHTML = `
     <div
       id="kakaoMap"
-      style="width:100%; height:280px; border-radius:18px; overflow:hidden;">
+      style="width:100%; height:280px; border-radius:22px; overflow:hidden;">
     </div>
   `;
 
