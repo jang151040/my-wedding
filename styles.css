@@ -1291,15 +1291,28 @@ a {
 }
 
 .message__button {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  background: var(--color-text);
-  color: #fff;
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  letter-spacing: 2px;
-  border-radius: 10px;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(180deg,#4e4137,#372c24);
+    color:#fff;
+    font-family:var(--font-serif);
+    font-size:.95rem;
+    letter-spacing:2px;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.25s;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.message__button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 35px rgba(0,0,0,.18);
+}
+
+.message__button:active{
+    transform:translateY(0);
 }
 
 .message__list {
