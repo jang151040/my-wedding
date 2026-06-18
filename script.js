@@ -910,6 +910,7 @@ try {
           `;
 
           messageList.appendChild(item);
+          item.classList.add('is-new');
         });
       });
   }

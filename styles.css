@@ -1647,3 +1647,18 @@ img.is-loaded {
     filter:none !important;
     pointer-events:none;
 }
+
+.message__item.is-new{
+    animation: messageAppear .45s cubic-bezier(.22,.61,.36,1);
+}
+
+@keyframes messageAppear{
+    from{
+        opacity:0;
+        transform:translateY(14px) scale(.98);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
